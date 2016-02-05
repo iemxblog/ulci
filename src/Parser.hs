@@ -9,9 +9,9 @@ import Control.Monad
 import Syntax
 
 
-curryfy :: [String] -> LExpr -> LExpr
-curryfy [] b = b
-curryfy (x:xs) b = Lambda x (curryfy xs b)
+currify :: [String] -> LExpr -> LExpr
+currify [] b = b
+currify (x:xs) b = Lambda x (currify xs b)
 
 tok :: Parsec String () a -> Parsec String () a
 tok p = do
@@ -42,7 +42,7 @@ lambda = tok $ do
     ns <- many1 name
     char '.'
     e <- lexpr
-    return $ curryfy ns e
+    return $ currify ns e
 
 term :: Parsec String () LExpr
 term = (var <|> lambda <|> parens lexpr)

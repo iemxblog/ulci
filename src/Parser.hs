@@ -37,10 +37,10 @@ var :: Parsec String () LExpr
 var = liftM Var name
 
 lambda :: Parsec String () LExpr
-lambda = tok $ do
-    char '\\'
+lambda = do
+    tok $ char '\\'
     ns <- many1 name
-    char '.'
+    tok $ char '.'
     e <- lexpr
     return $ currify ns e
 

@@ -21,13 +21,6 @@ body :: LExpr -> LExpr
 body (Lambda _ b) = body b
 body e = e
 
-{-
-instance Show LExpr where
-    show (Var xs) = xs
-    show l@(Lambda _ _) = "\x03bb" ++ (concat . intersperse " " . vars $ l) ++ "." ++ "(" ++ show (body l) ++ ")"
-    show (Apply e1 e2) = show e1 ++ "(" ++ show e2 ++ ")"
--}
-
 instance Show LExpr where
     show = pretty
 

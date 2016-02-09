@@ -6,6 +6,7 @@ import System.IO
 import Control.Monad
 import Parser
 import Syntax
+import Evaluation
 
 interactPrompt :: String -> (String -> String) -> IO ()
 interactPrompt p f = do
@@ -21,4 +22,4 @@ display e = case e of
     Right v -> v
 
 main :: IO()
-main = interactPrompt "ulci> " $ display . liftM pretty . parse
+main = interactPrompt "ulci> " $ display . liftM evalHistory . parse

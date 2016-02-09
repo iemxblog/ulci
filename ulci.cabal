@@ -20,7 +20,9 @@ executable ulci
   main-is:             Main.hs
   other-modules:
     Syntax,
-    Parser 
+    Parser,
+    Evaluation,
+    StandardTerms
   -- other-extensions:    
   build-depends:       
     base >=4.8 && <4.9,

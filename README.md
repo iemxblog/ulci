@@ -11,7 +11,7 @@ Then get a copy of ulci :
 git clone https://github.com/iemxblog/ulci
 cd ulci
 cabal sandbox init
-cabal install --enables-tests
+cabal install --enable-tests
 ./.cabal-sandbox/bin/ulci
 ```
 
